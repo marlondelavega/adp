@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 120" role="img" aria-label="Racines Carrées">
+	<!-- Invented placeholder logo for the sample page; replace with the company's real logo. -->
+	<rect width="360" height="120" fill="#1c1a19" />
+	<rect width="120" height="120" fill="#c8202e" />
+	<rect x="30" y="30" width="60" height="60" fill="none" stroke="#ffffff" stroke-width="7" />
+	<text x="60" y="76" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="44" fill="#ffffff">R</text>
+	<text x="140" y="54" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="40" fill="#ffffff" textLength="200" lengthAdjust="spacingAndGlyphs">RACINES</text>
+	<text x="140" y="98" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="40" fill="#ffffff" textLength="200" lengthAdjust="spacingAndGlyphs">CARRÉES</text>
+</svg>

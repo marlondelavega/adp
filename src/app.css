@@ -1,0 +1,121 @@
+@import '@fontsource-variable/hanken-grotesk';
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+@plugin 'daisyui' {
+	themes: false;
+}
+@plugin 'daisyui/theme' {
+	name: 'adp';
+	default: true;
+	color-scheme: light;
+	--color-base-100: #ffffff;
+	--color-base-200: #f3f4f6;
+	--color-base-300: #e3e5e9;
+	--color-base-content: #13171d;
+	--color-primary: #d1111c;
+	--color-primary-content: #ffffff;
+	--color-neutral: #13171d;
+	--color-neutral-content: #ffffff;
+	--radius-selector: 0.25rem;
+	--radius-field: 0.25rem;
+	--radius-box: 0.25rem;
+	--border: 1px;
+}
+
+@theme {
+	--font-sans: 'Hanken Grotesk Variable', ui-sans-serif, system-ui, sans-serif;
+	--color-ink: #13171d;
+	--color-red: #d1111c;
+	--color-red-bright: #ff4a52;
+	--color-steel: #5b6470;
+	--color-sheet: #f3f4f6;
+	--color-line: #e3e5e9;
+	--ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+	html {
+		scroll-padding-top: 5rem;
+		scrollbar-color: var(--color-steel) var(--color-sheet);
+		-webkit-text-size-adjust: 100%;
+	}
+	@media (prefers-reduced-motion: no-preference) {
+		html {
+			scroll-behavior: smooth;
+		}
+	}
+	body {
+		font-family: var(--font-sans);
+		color: var(--color-ink);
+		background: #fff;
+		font-size: 1rem;
+		line-height: 1.55;
+		text-rendering: optimizeLegibility;
+	}
+	h1,
+	h2,
+	h3 {
+		letter-spacing: -0.02em;
+		text-wrap: balance;
+		line-height: 1.1;
+	}
+	p {
+		text-wrap: pretty;
+	}
+	::selection {
+		background: var(--color-red);
+		color: #fff;
+	}
+	:focus-visible {
+		outline: 3px solid var(--color-red);
+		outline-offset: 3px;
+		border-radius: 2px;
+	}
+	.on-dark :focus-visible {
+		outline-color: #fff;
+	}
+}
+
+@layer components {
+	.wrap {
+		width: min(100% - 2 * clamp(1rem, 4vw, 2rem), 76rem);
+		margin-inline: auto;
+	}
+	/* Soft red-tinted halo under an image when its card (.group) is hovered. */
+	.glow {
+		transition: box-shadow 0.4s var(--ease-out-expo);
+	}
+	@media (hover: hover) {
+		.group:hover .glow {
+			box-shadow:
+				0 14px 34px -12px rgb(209 17 28 / 0.4),
+				0 0 0 1px rgb(209 17 28 / 0.3);
+		}
+	}
+	.rise {
+		animation: rise 0.9s var(--ease-out-expo) both;
+		animation-delay: var(--d, 0ms);
+	}
+	.settle {
+		animation: settle 1.6s var(--ease-out-expo) both;
+	}
+}
+
+@keyframes rise {
+	from {
+		opacity: 0;
+		transform: translateY(14px);
+	}
+}
+@keyframes settle {
+	from {
+		transform: scale(1.06);
+	}
+}
+@media (prefers-reduced-motion: reduce) {
+	.rise,
+	.settle {
+		animation: none;
+	}
+}
